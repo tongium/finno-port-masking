@@ -1,0 +1,30 @@
+{
+    "name": "FINNOMENA Port",
+    "description": "Customize your portfoilio",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "options_page": "options.html",
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://port.finnomena.com/*",
+                "https://port-qa.finnomena.com/*"
+            ],
+            "run_at": "document_end",
+            "js": [
+                "content-script.js"
+            ]
+        }
+    ]
+}
